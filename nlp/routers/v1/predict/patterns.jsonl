@@ -1,0 +1,11 @@
+{"label": "CVE", "pattern": [{"SHAPE": "XXX-dddd-dddd"}]}
+{"label": "CVE", "pattern": [{"SHAPE": "xxx-dddd-dddd"}]}
+{"label": "CVE", "pattern": [{"SHAPE": "XXX-dddd-ddddd"}]}
+{"label": "CVE", "pattern": [{"SHAPE": "xxx-dddd-ddddd"}]}
+{"label": "ADVISORY", "pattern": [{"SHAPE": "XXXdddddd"}]}
+{"label": "ADVISORY", "pattern": [{"SHAPE": "xxxdddddd"}]}
+{"label": "IpAddress", "pattern": "(tcp/)?([0-9]{1,3}\.){3}[0-9]{1,3}(\+[0-9]{1,3})?"}
+{"label": "Host", "pattern": "(([a-zA-Z0-9]|[a-zA-Z0-9][a-zA-Z0-9\-]*[a-zA-Z0-9])\.)*([A-Za-z0-9]|[A-Za-z0-9][A-Za-z0-9\-]*[A-Za-z0-9])"}
+{"label": "Signal", "pattern": "(\d{1,2}|(?i:sig[a-z]*\d{1,2}))"}
+{"label": "Email", "pattern": "[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+"}
+{"label": "IpAddress", "pattern": [{"REGEX": "(tcp/)?([0-9]{1,3}\\.){3}[0-9]{1,3}(\\+[0-9]{1,3})?"}]}
