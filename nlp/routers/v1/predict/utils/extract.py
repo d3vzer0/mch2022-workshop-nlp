@@ -1,6 +1,7 @@
 from spacy.util import compile_prefix_regex, compile_infix_regex, compile_suffix_regex
 from spacy.tokenizer import Tokenizer
 from spacy.pipeline import EntityRuler
+from spacytextblob.spacytextblob import SpacyTextBlob
 import spacy
 import re
 
@@ -23,11 +24,18 @@ patterns = [
     {"label": "ADVISORY", "pattern": [{"SHAPE": "xxxdddddd"}]}
 ]
 ruler.add_patterns(patterns)
-
+nlp.add_pipe("spacytextblob")
 
 class Extract:
     def __init__(self, doc=None):
         self.doc = doc
+
+    def sentiment(self):
+        return {
+            'polarity': self.doc._.blob.polarity,
+            'subjectivity': self.doc._.blob.subjectivity,
+            'assessments': [sentiment[0][0] for sentiment in self.doc._.blob.sentiment_assessments.assessments]
+        }
 
     def props(self, min_length=2):
         stop_words = nlp.Defaults.stop_words

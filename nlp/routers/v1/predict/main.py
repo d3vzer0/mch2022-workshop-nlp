@@ -31,5 +31,6 @@ async def extract(data: ExtractModel):
     document_object = Extract(doc=nlp(data.text))
     return {
         'entities': document_object.entities(),
-        'props': document_object.props()
+        'props': document_object.props(),
+        'sentiment': document_object.sentiment()
     }
