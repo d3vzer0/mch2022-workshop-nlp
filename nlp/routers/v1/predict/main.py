@@ -11,7 +11,7 @@ from selectolax.parser import HTMLParser
 
 router = APIRouter()
 
-class ExtractModel(Basemodel):
+class ExtractModel(BaseModel):
     text: str
 
 class Clean(BaseModel):
