@@ -39,14 +39,13 @@ class Extract:
 
     def entities(self):
         all_ents = {
-            'PERSON': set(),
-            'ORG': set(),
-            'PRODUCT': set(),
-            'CVE': set(),
+            'PERSON': [],
+            'ORG': [],
+            'PRODUCT': [],
+            'CVE': [],
 
         }
         for ent in self.doc.ents:
-            if ent.label_ in all_ents:
-                all_ents[ent.label_].add(ent)
+            if ent.label_ in all_ents and ent.text not in all_ents[ent.label_]:
+                all_ents[ent.label_].append(ent.text)
         return all_ents
-       
