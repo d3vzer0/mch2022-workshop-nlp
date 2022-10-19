@@ -2,10 +2,14 @@ from spacy.util import compile_prefix_regex, compile_infix_regex, compile_suffix
 from spacy.tokenizer import Tokenizer
 from spacy.pipeline import EntityRuler
 from spacytextblob.spacytextblob import SpacyTextBlob
+import os
 import spacy
 import re
 
-nlp = spacy.load('en_core_web_lg')
+
+spacy_model = os.getenv('SPACY_MODEL', 'en_core_web_md')
+nlp = spacy.load(spacy_model)
+
 url_regex = re.compile('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+')
 nlp.tokenizer = Tokenizer(nlp.vocab,
     prefix_search=compile_prefix_regex(nlp.Defaults.prefixes).search,
